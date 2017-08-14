@@ -11,9 +11,9 @@ var Search = React.createClass({
 	},
 
 	handleChange: function(event) {
-		this.setState({term: event.target.value});
-		this.setState({startYear: event.target.value});
-		this.setState({endYear: event.target.value});
+    var newState = {};
+    newState[event.target.id] = event.target.value;
+    this.setState(newState);
 	}
 
 	handleSubmit: function(event) {
