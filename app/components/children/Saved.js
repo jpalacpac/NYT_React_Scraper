@@ -1,5 +1,5 @@
-import React from 'react';
-import helpers from '../utils/helpers';
+var React = require('react');
+var helpers = require('../utils/helpers');
 
 var Saved = React.createClass({
 
@@ -41,24 +41,16 @@ var Saved = React.createClass({
         
         return (
 
-            <div className="container">
-
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="panel panel-default">
-                            <div className="panel-heading">
-                                <h2>Saved Articles</h2>
-                            </div>
-                            <div className="panel-body" onClick={this.clickHandler}>
-                        {/* using map to loop through the array being returned from the db with the articles it holds */}
-                                {this.props.articles.map(function(search, i) {
-                                    return <p key={i}><a href="" className="btn btn-danger" id={search._id} >Delete</a> <a href={search.url}>{search.title}</a> <span>{search.date}</span></p>
-                                })}
-                            </div>
-                        </div>
-                    </div>
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h2>Saved Articles</h2>
                 </div>
-
+                <div className="panel-body" onClick={this.clickHandler}>
+            {/* using map to loop through the array being returned from the db with the articles it holds */}
+                    {/*this.props.articles.map(function(search, i) {
+                        return <p key={i}><a href="" className="btn btn-danger" id={search._id} >Delete</a> <a href={search.url}>{search.title}</a> <span>{search.date}</span></p>
+                    })*/}
+                </div>
             </div>
 
         )
@@ -66,4 +58,4 @@ var Saved = React.createClass({
 
 });
 
-export default Saved;
+module.exports = Saved;
