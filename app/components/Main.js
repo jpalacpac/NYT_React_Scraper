@@ -69,7 +69,7 @@ var Main = React.createClass({
 		helpers.getHistory()
 			.then(function(response){
 				if (response != this.state.history){
-					// console.log ("History", response.data);
+				
 
 					this.setState({
 						history: response.data
@@ -77,8 +77,6 @@ var Main = React.createClass({
 				}
 			}.bind(this))
 	},
-
-	// Here we render the function
 	render: function(){
 
 		return(
@@ -89,7 +87,7 @@ var Main = React.createClass({
 
 					<div className="jumbotron">
 						<h2 className="text-center">New York Times Article Scrubber</h2>
-						<p className="text-center"><em>Search news articles and save some for later!</em></p>
+						<p className="text-center">Search news articles and save some for later!</p>
 					</div>
 
 					<div className="col-md-6">
