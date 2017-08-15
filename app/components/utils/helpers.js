@@ -5,7 +5,7 @@ var helpers = {
     // this function being called on the Search component file and beign passed in the input values to build the query url below
     searchNYT: function(searchTopic, startYear, endYear) {
 
-        var nytAPI = 'c93c620e2666430ab20bf934eca8d8d6';
+        var nytAPI = '4b6fc51a0f5043d1bc0c4dfeb85c76cf';
         
         // build the query url for the new york times api
         var queryURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${nytAPI}&q=${searchTopic}&begin_date=${startYear}0101&end_date=${endYear}0101`;
