@@ -14,7 +14,7 @@ var Search = React.createClass({
     var newState = {};
     newState[event.target.id] = event.target.value;
     this.setState(newState);
-	}
+	},
 
 	handleSubmit: function(event) {
 		event.preventDefault();
@@ -23,13 +23,13 @@ var Search = React.createClass({
     	this.setState({ term: "" });
     	this.setState({ startYear: "" });
     	this.setState({ endYear: "" });
-	}
+	},
 
 	render:function() {
 		return (
 			<div className="panel panel-default">
 				<div className="panel-heading">
-					<h3 className="panel-title"><i class= "fa fa-newspaper-o"></i>Query</h3>
+					<h3 className="panel-title"><i className= "fa fa-newspaper-o"></i>Query</h3>
 				</div>
 				<div className="panel-body">
 					<form onSubmit={this.handleSubmit}>
@@ -43,7 +43,7 @@ var Search = React.createClass({
 	                			className="form-control"
 	                			id="term"
 	                			onChange={this.handleChange}
-	                			required
+	                			required>
 	                		</input>
 	                		<h4 className="">
 								<strong>Start Year</strong>
@@ -54,7 +54,7 @@ var Search = React.createClass({
 	                			className="form-control"
 	                			id="term"
 	                			onChange={this.handleChange}
-	                			required
+	                			required>
 	                		</input>
 	                		<h4 className="">
 								<strong>End Year</strong>
@@ -65,7 +65,7 @@ var Search = React.createClass({
 	                			className="form-control"
 	                			id="term"
 	                			onChange={this.handleChange}
-	                			required
+	                			required>
 	                		</input>
 	                		<br />
               				<button
