@@ -16,9 +16,9 @@ var Main = React.createClass({
     return {
     	searchTerm:"", 
     	startYear:"", 
-    	endYear:""
+    	endYear:"",
     	results:[],
-    	history: [],
+    	history: []
     	};
   },
 
@@ -44,39 +44,23 @@ var Main = React.createClass({
 
 
 
-	// If the component changes (i.e. if a search is entered)... 
-	componentDidUpdate: function(prevProps, prevState){
+	// // If the component changes (i.e. if a search is entered)... 
+	// componentDidUpdate: function(prevProps, prevState){
 
 		
-			helpers.runQuery(this.state.searchTerm, this.state.searchStartYear, this.state.searchEndYear)
-				.then(function(data){
-					if (data != this.state.results)
-					{
+	// 		helpers.searchNYT(this.state.searchTerm, this.state.searchStartYear, this.state.searchEndYear)
+	// 			.then(function(data){
+	// 				if (data != this.state.results)
+	// 				{
 
-						this.setState({
-							results: data
-						})
-					}
-				}.bind(this))
+	// 					this.setState({
+	// 						results: data
+	// 					})
+	// 				}
+	// 			}.bind(this))
 				
 			
-	},
-
-	// The moment the page renders get the History
-	componentDidMount: function(){
-
-		// Get the latest history.
-		helpers.getHistory()
-			.then(function(response){
-				if (response != this.state.history){
-				
-
-					this.setState({
-						history: response.data
-					})
-				}
-			}.bind(this))
-	},
+	// },
 	render: function(){
 
 		return(
@@ -95,18 +79,11 @@ var Main = React.createClass({
 						<Search setTerm={this.setTerm} setStartYear={this.setStartYear} setEndYear={this.setEndYear}/>
 
 					</div>
-
 					<div className="col-md-6">
-				
-						<Results results={this.state.results} />
+					
+
 
 					</div>
-
-				</div>
-
-				<div className="row">
-
-					<Saved history={this.state.history}/> 
 
 				</div>
 

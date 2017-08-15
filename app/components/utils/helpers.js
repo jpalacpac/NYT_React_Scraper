@@ -32,7 +32,7 @@ var helpers = {
 
         }); // end axios.get()
 
-    }, // end searchNYT()
-
+    } // end searchNYT()
+}
 // We export the helpers object (which contains runQuery)
 export default helpers;
