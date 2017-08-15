@@ -1,4 +1,3 @@
-// Include the Main React Dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
