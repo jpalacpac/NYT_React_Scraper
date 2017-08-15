@@ -3,6 +3,7 @@ var React = require("react");
 // Here we include all of the sub-components
 var Saved = require("./children/Saved");
 var Search = require("./children/Search");
+var Results = require("./children/Results")
 
 // Helper for making AJAX requests to our API
 var helpers = require("./utils/helpers");
@@ -24,43 +25,29 @@ var Main = React.createClass({
 
 
 	// This function allows childrens to update the parent.
-	setTerm: function(term){
+	setTerm: function(term, startYear, endYear){
 		this.setState({
-			searchTerm: term
+			searchTerm: term,
+			startYear: startYear,
+			endYear: endYear
 		})
 	},
 
-	setStartYear: function(startYear){
-		this.setState({
-			startYear: startYear
-		});
-	},
-
-	setEndYear: function(endYear){
-		this.setState({
-			endYear: endYear
-		});
-	},
-
-
-
-	// // If the component changes (i.e. if a search is entered)... 
-	// componentDidUpdate: function(prevProps, prevState){
+	// If the component changes (i.e. if a search is entered)... 
+	componentDidUpdate: function(prevProps, prevState){
 
 		
-	// 		helpers.searchNYT(this.state.searchTerm, this.state.searchStartYear, this.state.searchEndYear)
-	// 			.then(function(data){
-	// 				if (data != this.state.results)
-	// 				{
+			helpers.searchNYT(this.state.searchTerm, this.state.searchStartYear, this.state.searchEndYear)
+				.then(function(data){
+					if (data != this.state.results)
+					{
 
-	// 					this.setState({
-	// 						results: data
-	// 					})
-	// 				}
-	// 			}.bind(this))
-				
-			
-	// },
+						this.setState({
+							results: data
+						})
+					}
+				}.bind(this))			
+	},
 	render: function(){
 
 		return(
@@ -74,14 +61,14 @@ var Main = React.createClass({
 						<p className="text-center">Search news articles and save some for later!</p>
 					</div>
 
-					<div className="col-md-6">
+					<div className="col-md-12">
 					
-						<Search setTerm={this.setTerm} setStartYear={this.setStartYear} setEndYear={this.setEndYear}/>
+					<Search setTerm={this.setTerm} />
 
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-12">
 					
-
+					<Results results={this.state.results} />
 
 					</div>
 

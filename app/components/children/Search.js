@@ -52,7 +52,7 @@ var Search = React.createClass({
 								value={this.state.startYear}
 	                			type="number"
 	                			className="form-control"
-	                			id="term"
+	                			id="startYear"
 	                			onChange={this.handleChange}
 	                			required>
 	                		</input>
@@ -63,7 +63,7 @@ var Search = React.createClass({
 								value={this.state.endYear}
 	                			type="number"
 	                			className="form-control"
-	                			id="term"
+	                			id="endYear"
 	                			onChange={this.handleChange}
 	                			required>
 	                		</input>
