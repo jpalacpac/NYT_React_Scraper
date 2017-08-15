@@ -3,7 +3,7 @@ import axios from 'axios';
 var helpers = {
 
     // this function being called on the Search component file and beign passed in the input values to build the query url below
-    searchNYT: function(searchTopic, startYear, endYear) {
+    searchNYT: (searchTopic, startYear, endYear) => {
 
         var nytAPI = '4b6fc51a0f5043d1bc0c4dfeb85c76cf';
         
@@ -12,13 +12,13 @@ var helpers = {
 
         // ajax call to the new york times articles search api using axios
         return axios.get(queryURL)
-            .then((nytdata) => {
+            .then( (nytdata) => {
 
                 // store the articles returned in a variable
                 var articles = nytdata.data.response.docs;
 
                 // map through the array and build an object for each article that holds the data we need to pass back to the Search component
-                var articles_obj_array = articles.map(function(article) {
+                var articles_obj_array = articles.map( (article) => {
                     var articlesObj = {
                         title: article.title,
                         date: article.date,
@@ -32,7 +32,8 @@ var helpers = {
 
         }); // end axios.get()
 
-    }, // end searchNYT()
+    } // end searchNYT()
+};
 
 // We export the helpers object (which contains runQuery)
 export default helpers;
